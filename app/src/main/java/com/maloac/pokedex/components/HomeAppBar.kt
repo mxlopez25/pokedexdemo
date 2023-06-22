@@ -16,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.maloac.pokedex.PokedexApp
 import com.maloac.pokedex.ui.theme.PokedexTheme
 import com.maloac.pokedex.R
 import kotlinx.coroutines.CoroutineScope
@@ -59,6 +58,6 @@ fun HomeAppBar(scaffoldState: ScaffoldState, scope: CoroutineScope) {
 @Composable
 fun DefaultPreview() {
     PokedexTheme {
-        PokedexApp()
+
     }
 }
