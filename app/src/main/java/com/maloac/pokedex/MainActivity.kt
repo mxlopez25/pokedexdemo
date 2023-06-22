@@ -10,7 +10,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.maloac.pokedex.components.HomeAppBar
-import com.maloac.pokedex.components.PokedexDraweMenu
+import com.maloac.pokedex.components.PokedexDrawerMenu
 import com.maloac.pokedex.ui.theme.PokedexTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +37,7 @@ fun PokedexApp() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { HomeAppBar(scaffoldState, coroutineScope) },
-        drawerContent = { PokedexDraweMenu() }
+        drawerContent = { PokedexDrawerMenu() }
     ) {
 
     }
