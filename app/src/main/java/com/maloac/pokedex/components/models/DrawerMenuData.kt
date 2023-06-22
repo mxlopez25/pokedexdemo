@@ -1,4 +1,4 @@
-package com.maloac.pokedex
+package com.maloac.pokedex.components.models
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Accessible
