@@ -1,6 +1,8 @@
 package com.maloac.pokedex.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
@@ -19,23 +21,34 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maloac.pokedex.components.models.PokedexData
+import com.maloac.pokedex.pokedexData
 
 @Composable
 fun PokedexList(paddingValues: PaddingValues) {
-
-
+    Box(modifier = Modifier.padding(paddingValues)) {
+        LazyColumn(modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)) {
+            items(pokedexData) {
+                pokemonData ->
+                PokedexItem(pokedexData = pokemonData)
+            }
+        }
+    }
 }
 
 @Composable
 fun PokedexItem(pokedexData: PokedexData, modifier: Modifier = Modifier) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(8.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
     ) {
         Card(
             modifier = Modifier
-            .padding(end = 8.dp)
-            .size(40.dp)
-            .clip(CircleShape),
+                .padding(end = 8.dp)
+                .size(40.dp)
+                .clip(CircleShape),
         backgroundColor = Color.Gray
         ) {
             Text(text = pokedexData.id.toString(), textAlign = TextAlign.Center,
@@ -54,7 +67,9 @@ fun PokedexItem(pokedexData: PokedexData, modifier: Modifier = Modifier) {
 
             IconButton(
                 onClick = { /*TODO*/ },
-                modifier = Modifier.padding(top = 16.dp).size(50.dp)
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .size(50.dp)
             ) {
                 Icon(imageVector = Icons.Outlined.StarOutline, contentDescription = "Favorites")
             }
