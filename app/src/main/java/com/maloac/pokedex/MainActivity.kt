@@ -13,10 +13,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.maloac.pokedex.components.HomeAppBar
 import com.maloac.pokedex.components.HomeBottomBar
 import com.maloac.pokedex.components.PokedexDrawerMenu
 import com.maloac.pokedex.components.PokedexList
+import com.maloac.pokedex.ui.screens.PokedexApp
 import com.maloac.pokedex.ui.theme.PokedexTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,21 +35,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun PokedexApp() {
-    val scaffoldState = rememberScaffoldState()
-    val coroutineScope = rememberCoroutineScope()
-    val scrollState = rememberScrollState()
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = { HomeAppBar(scaffoldState, coroutineScope) },
-        drawerContent = { PokedexDrawerMenu(scrollState) },
-        bottomBar = { HomeBottomBar() }
-    ) {
-        PokedexList(paddingValues = it)
     }
 }
 
