@@ -1,9 +1,9 @@
 package com.maloac.pokedex.components.models
 
 data class PokedexData(
-    val id: Int,
-    val order: Int,
-    val name: String,
+    val id: Int? = null,
+    val order: Int? = null,
+    val name: String? = null,
     val height: Int? = null,
     val weight: Int? = null,
     val baseExperience: Int? = null,
