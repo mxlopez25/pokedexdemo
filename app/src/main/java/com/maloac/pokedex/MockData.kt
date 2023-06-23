@@ -7,7 +7,10 @@ object MockData {
         PokedexData(
             id = 1,
             order = 1,
-            name = "Bulbasaur"
+            name = "Bulbasaur",
+            height = 10,
+            weight = 20,
+            baseExperience = 10
         ),
         PokedexData(
             id = 2,
