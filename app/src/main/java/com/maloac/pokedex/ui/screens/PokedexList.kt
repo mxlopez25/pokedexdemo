@@ -24,26 +24,40 @@ import com.maloac.pokedex.components.models.PokedexData
 import com.maloac.pokedex.MockData
 
 @Composable
-fun PokedexList(navController: NavController, paddingValues: PaddingValues, onItemClick: () -> Unit = {}) {
+fun PokedexList(
+    navController: NavController,
+    paddingValues: PaddingValues, onItemClick: () -> Unit = {}
+) {
     Box(modifier = Modifier
         .padding(paddingValues)
         .clickable {
             onItemClick()
-        }) {
-        LazyColumn(modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)) {
-            items(MockData.pokedexData) {
-                data ->
-                PokedexItem(pokedexData = data, navController = navController, onItemClick = { navController.navigate("Detail/${data.id }")})
+        }
+    ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            items(MockData.pokedexData) { data ->
+                PokedexItem(pokedexData = data, navController = navController, onItemClick = {
+                    navController.navigate("Detail/${data.id}")
+                })
             }
         }
     }
 }
 
 @Composable
-fun PokedexItem(pokedexData: PokedexData, navController: NavController, modifier: Modifier = Modifier, onItemClick: () -> Unit = {}) {
-    Box(modifier = Modifier.clickable { onItemClick() }) {
+fun PokedexItem(
+    pokedexData: PokedexData,
+    navController: NavController,
+    modifier: Modifier = Modifier, onItemClick: () -> Unit = {}
+) {
+    Box(modifier = Modifier.clickable {
+        onItemClick()
+
+    }) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -56,8 +70,10 @@ fun PokedexItem(pokedexData: PokedexData, navController: NavController, modifier
                     .clip(CircleShape),
                 backgroundColor = Color.Gray
             ) {
-                Text(text = pokedexData.id.toString(), textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(8.dp))
+                Text(
+                    text = pokedexData.id.toString(), textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(8.dp)
+                )
             }
             Column(modifier = Modifier.weight(2.0f)) {
                 Text(
@@ -65,7 +81,6 @@ fun PokedexItem(pokedexData: PokedexData, navController: NavController, modifier
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
-
             }
 
             Column {
