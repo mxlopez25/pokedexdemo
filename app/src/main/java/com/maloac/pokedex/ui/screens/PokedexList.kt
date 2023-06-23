@@ -77,7 +77,7 @@ fun PokedexItem(
             }
             Column(modifier = Modifier.weight(2.0f)) {
                 Text(
-                    text = pokedexData.name,
+                    text = pokedexData.name!!,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
