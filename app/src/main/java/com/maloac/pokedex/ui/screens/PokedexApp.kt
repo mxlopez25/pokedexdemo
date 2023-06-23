@@ -23,8 +23,7 @@ fun PokedexApp() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { HomeAppBar(scaffoldState, coroutineScope) },
-        drawerContent = { PokedexDrawerMenu(scrollState) },
-        bottomBar = { HomeBottomBar() }
+        drawerContent = { PokedexDrawerMenu(scrollState) }
     ) {
         Navigation(it)
     }
